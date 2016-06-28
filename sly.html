@@ -1,0 +1,270 @@
+<head>
+<style>
+#nikoSlider ul, #infiniteSlider ul{ 
+	
+	list-style-type:none;
+	padding:0; 
+	width:10000000px; /*fallback for IE*/ 	
+	width:10000000vw; /*Width needs to be long enough for ever li*/ 
+  	/*height:100vh;*/
+	
+}
+
+#nikoSlider #container, #infiniteSlider #container{
+    //width:97vw;
+    //border:2px solid blue;
+    overflow:hidden;
+}
+
+
+#nikoSlider li{
+	display:inline-block;
+  	position:absolute;
+  	border:1px solid black;
+	background:#ddd;
+	font-size:4em;
+	line-height:4em;
+	transition: color 3s, left .5s, opacity .5s, transform 2s;
+	padding:0;
+	margin:0;
+	width:25vw;
+	height:250px;
+	text-align:center;
+
+}
+
+
+#nikoSlider li:last-child{
+}
+/*
+@media (min-width:641px){
+#nikoSlider li{
+	height:300px;
+}
+}  
+
+@media (min-width:769px){
+#nikoSlider li{
+	height:350px;
+	width:50vw;
+	margin-right: 5px;	
+}
+}  
+@media (min-width:810px){
+#nikoSlider li{
+	height:400px;
+	width:33.333vw;
+	margin-right: 10px;	
+}
+}  
+*/
+/*
+#nikoSlider li:first-child{ 
+	color:purple;
+	left:-50vw;
+  	top: 10vw;
+}
+
+.please{
+	margin-left:0;
+}
+
+
+#nikoSlider li:nth-child(2){
+	color:yellow;	
+  	left:0;
+ 	 top:10vw;
+}
+#nikoSlider li:nth-child(3){	
+	color:red;
+  	left: 50vw;
+  	top: 10vw;
+}
+
+#nikoSlider li:nth-child(4){	
+	color:red;
+  	left: 100vw;
+  	top: 10vw;
+}
+
+#nikoSlider li:nth-child(5){	
+	color:red;
+  	left: 150vw;
+  	top: 10vw;
+}
+*/
+#nikoSlider li:last-child{
+	color:pink;
+	/*opacity:0;*/
+}
+
+#nikoSlider #container{
+	text-align:center;
+}
+
+#nikoSlider #gallery_btn-next, #nikoSlider #gallery_btn-prev{
+	width:50px;
+	height:50px;
+	background:$blue;
+	border:none;
+}
+#nikoSlider #middleSpan{
+	height:50px;
+	background:#fff;
+	line-height:50px;
+}
+#nikoSlider #gallery_btn-next{
+	float:right;
+}
+
+#nikoSlider #gallery_btn-prev{
+	float:left;
+
+}
+#nikoSlider #container ul li{
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+	<div id="nikoSlider">
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>   
+      <li>d</li>      
+      <li>e</li>
+
+      <li>f</li>
+      <li>g</li>
+      <li>h</li>   
+      <li>i</li>      
+      <li>j</li>
+
+
+    </ul>
+    </div>
+    						<button id="gallery_btn-prev"><img class="gallery_arrow"/></button>
+						<span id="middleSpan"></span>
+						<button id="gallery_btn-next"><img class="gallery_arrow"/></button>
+
+</body>
+<script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+<script>
+	var counter = 0;  //Set default image
+	function foo(){
+	    if ( 0 < counter){
+		counter--
+		console.log(counter)   
+		classes();
+	    }
+		window.setTimeout(foo, 1);
+	}
+
+	foo()
+	$('#gallery_btn-next').click(function(e){
+	    console.log('adf')
+      
+	    counter++;
+	})
+
+	$('#gallery_btn-prev').click(function(e){
+	    counter--;
+	})
+
+	function classes(){ 
+		$('#nikoSlider ul').append($('#nikoSlider li:first-child')) 
+	}
+
+	function backClasses(){  
+		$('#nikoSlider ul').prepend($('#nikoSlider li:last-child')) 
+	}
+
+	function bar(){
+	    if ( 0 > counter){
+		counter++;
+		console.log(counter)   
+		backClasses();
+	    }
+		window.setTimeout(bar, 1);
+	}
+
+	bar()
+
+
+
+	console.log($("#nikoSlider li").css('width'));
+	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+	console.log(w);
+	console.log(Math.round((parseInt($("#nikoSlider li").css('width'), 10) / w )*100))
+
+
+	var viewPortWidth = Math.round((parseInt($("#nikoSlider li").css('width'), 10) / w )*100);
+	var viewPortHeight = Math.round((parseInt($("#nikoSlider li").css('height'), 10) / h )*100);
+
+	console.log(viewPortWidth);
+
+/*
+#nikoSlider li:nth-child(2){
+	color:yellow;	
+  	left:0;
+ 	 top:10vw;
+}
+#nikoSlider li:nth-child(3){	
+	color:red;
+  	left: 50vw;
+  	top: 10vw;
+}
+
+#nikoSlider li:nth-child(4){	
+	color:red;
+  	left: 100vw;
+  	top: 10vw;
+}
+
+#nikoSlider li:nth-child(5){	
+	color:red;
+  	left: 150vw;
+  	top: 10vw;
+}*/
+
+
+	var stylez = '' 
+	for(var i=0; i<$('#nikoSlider ul').children().length; i++){
+
+		stylez += "#nikoSlider li:nth-child("+(i+1)+"){left:"+((i*viewPortWidth - viewPortWidth))+"vw; top:10vw}"
+
+	}
+
+	console.log(stylez)
+
+	var sheet = document.createElement('style')
+	
+	sheet.innerHTML = "body { background-color: green;}";
+	document.body.appendChild(sheet);
+	console.log(document);
+	sheet.innerHTML = stylez;
+	
+		
+	console.log(sheet);
+	document.body.appendChild(sheet);
+
+
+		
+	
+
+
+	
+</script>
+
+
+
+

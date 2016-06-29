@@ -1,7 +1,10 @@
-.container{
-	background:#ccc;
+*{
+	padding:0;
+	margin:0;
 }
-.container .sly ul:nth-child(2){
+body{
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 #one{
 	position:absolute;
@@ -18,7 +21,6 @@
 	padding:0; 
 	width:10000000px; /*fallback for IE*/ 	
 	width:10000000vw; /*Width needs to be long enough for ever li*/ 
-	/*height:100vh;*/
 }
 
 
@@ -29,10 +31,18 @@
 	background:#ddd;
 	font-size:4em;
 	line-height:25vh;
-	transition: color 1s, background 1s, left .5s, opacity .5s, transform 2s;
-	width:25vw;
-	height:25vh;
+	transition: color 1s, background 1s, left .5s, top .5s, opacity .5s, transform 2s;
+	width:20vw;
+	height:20vh;
 	text-align:center;
+	color:black;
+	background:#777;
+	
+}
+
+.sly li:nth-child(1){
+	color:grey;
+	background:#fff;
 }
 
 .sly li:nth-child(2){
@@ -44,14 +54,52 @@
 	background:pink;
 }
 .sly li:nth-child(4){
-	color:yellow;
-	background:lightyellow;
-	
+	color:green;
+	background:lightgreen;
+
 }
 .sly li:nth-child(5){
-	color:grey;
-	background:#eee;
+	color:yellow;
+	background:lightyellow;
+
 }
+
+
+
+
+
+/*
+li:nth-child(1){
+  color:blue;
+  background:lightblue;
+     top:40vw;
+
+}
+li:nth-child(2){
+  color:red;
+  background:pink;
+  top:0vw;
+}
+li:nth-child(3){
+  color:green;
+  background:lightgreen;
+   top:40vw;
+   transform:rotate(180deg)
+}
+
+li:nth-child(4){
+  color:purple;
+  background:#ff009e;
+  top:0vw;
+  
+}
+li:nth-child(5){
+  color:orange;
+  background:#ffdda0;
+      top:40vw;
+
+}*/
+
 
 
 
@@ -67,6 +115,7 @@
 
 #gallery_btn-next, #gallery_btn-prev{
 	padding:20px;
+	margin:20px;
 	font-size:16px;	
 }
 .sly #container ul li{
@@ -76,7 +125,15 @@
 }
 
 
-
+textarea{
+	width:50vw;
+	position:absolute;
+	height:40vh;
+	bottom:0;
+	right:0;
+	font-size:16px;
+	background:#eee;
+}
 
 
 
